@@ -28,7 +28,6 @@ export default function Experience() {
     let geo = chair.children[1].geometry;
     return geo;
   }, [chair]);
-  console.log(chair);
   const tableGeometry = useMemo(() => {
     let geo = table.children[0].geometry;
     return geo;
@@ -45,7 +44,6 @@ export default function Experience() {
     if (type === 'IN') {
     } else if (type === 'OUT') {
     }
-    console.log(camera);
   };
 
   return (
