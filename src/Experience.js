@@ -11,7 +11,6 @@ import {
 } from '@react-three/drei';
 import { useThree, useLoader } from '@react-three/fiber';
 import { Vector3 } from 'three';
-import { useControls } from 'leva';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { TextureLoader } from 'three';
 import { useMemo } from 'react';
@@ -48,11 +47,7 @@ export default function Experience() {
     }
     console.log(camera);
   };
-  const pos = useControls('pos', {
-    x: { value: 0, min: -10, max: 10, step: 0.1 },
-    y: { value: 0, min: -10, max: 10, step: 0.1 },
-    z: { value: 0, min: -10, max: 10, step: 0.1 },
-  });
+
   return (
     <>
       <Environment preset='city' />
@@ -103,10 +98,6 @@ export default function Experience() {
             position={[0, -3.55, -1]}>
             <meshPhysicalMaterial map={diff} />
           </mesh>
-          {/* <primitive
-            object={chair}
-            
-          /> */}
           <mesh
             geometry={chairTop}
             scale={[0.05, 0.05, 0.05]}
