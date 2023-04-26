@@ -10,21 +10,35 @@ import {
   useAnimations,
   Environment,
   Sparkles,
+  Html,
+  BakeShadows,
+  ContactShadows,
 } from '@react-three/drei';
 import { PresentationControls } from '@react-three/drei';
 import * as THREE from 'three';
+import { useControls } from 'leva';
+import { ResumePaper } from './ResumePaper';
+import { Bookshelf } from './Bookshelf';
 
 export function Portfolio(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('/Portfolio2_.glb');
+  const { nodes, materials, animations } = useGLTF('/Portfolio2.glb');
+  const resumePaper = useGLTF('./resumepaper.glb');
+  const laptop = useGLTF('./laptop.gltf');
   const { actions } = useAnimations(animations, group);
-  useEffect(() => {
-    setTimeout(() => {
-      actions['Projects'].setLoop(THREE.LoopOnce);
-      actions['Projects'].clampWhenFinished = true;
-      actions['Projects'].play();
-    }, 2000);
-  }, []);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     actions['Projects'].setLoop(THREE.LoopOnce);
+  //     actions['Projects'].clampWhenFinished = true;
+  //     actions['Projects'].play();
+  //   }, 2000);
+  // }, []);
+  const animateTo = (name) => {
+    actions[name].setLoop(THREE.LoopOnce);
+    actions[name].clampWhenFinished = true;
+    actions[name].play();
+  };
   return (
     <group ref={group} {...props} dispose={null}>
       <group name='Scene'>
@@ -77,27 +91,22 @@ export function Portfolio(props) {
           position={[-1.85, 1.79, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
         /> */}
+        <Sparkles speed={0.5} scale={[8, 5, 8]} count={200} />
+
         <PresentationControls
           global
-          rotation={[-0.15, 0.17, 0]}
-          polar={[-0.4, 0.2]}
-          azimuth={[-0.5, 0.5]}
+          rotation={[0, 0, 0]}
+          polar={[0, 0]}
+          azimuth={[-0.2, 0.2]}
           config={{ mass: 2, tension: 400 }}
           snap={{ mass: 4, tension: 400 }}>
-          <Environment preset='night' />
-          <rectAreaLight
-            width={7}
-            height={10}
-            intensity={10}
-            color={'#fff'}
-            rotation={[Math.PI / 2, Math.PI, 0]}
-            position={[0.37, 10, 1.87]}
-          />
+          <Environment preset='park' />
+
           <rectAreaLight
             width={5}
             height={0.3}
             color={'#00f'}
-            intensity={15}
+            intensity={5}
             position={[-6.15, 4.37, 3.56]}
             rotation={[-Math.PI / 2, 0, 0]}
             // position={[x, y, z]}
@@ -106,7 +115,7 @@ export function Portfolio(props) {
             width={5}
             height={0.3}
             color={'#00f'}
-            intensity={15}
+            intensity={5}
             position={[-6.15, 4.37, 2.44]}
             rotation={[-Math.PI / 2, 0, 0]}
             // position={[x, y, z]}
@@ -115,12 +124,12 @@ export function Portfolio(props) {
             width={5}
             height={0.3}
             color={'#00f'}
-            intensity={15}
+            intensity={5}
             position={[-6.15, 4.37, 1.32]}
             rotation={[-Math.PI / 2, 0, 0]}
             // position={[x, y, z]}
           />
-          <Sparkles speed={0.5} scale={[8, 5, 8]} count={200} />
+
           <group
             name='White_Board'
             position={[0.32, 2.02, -2.68]}
@@ -174,6 +183,7 @@ export function Portfolio(props) {
               scale={[1.99, 1, 2.49]}
             />
           </group>
+          <Bookshelf />
           <group
             name='Cube007'
             position={[-0.05, 0.47, -0.1]}
@@ -222,6 +232,7 @@ export function Portfolio(props) {
             position={[-0.24, 0.47, 0.12]}
             rotation={[0, -1.43, 0]}
             scale={0.19}
+            onClick={() => animateTo('White Board')}
           />
           <mesh
             name='Notebook'
@@ -230,6 +241,7 @@ export function Portfolio(props) {
             position={[0.95, 0.48, 0.58]}
             rotation={[Math.PI / 2, 0, 1.71]}
           />
+          <ResumePaper />
           <mesh
             name='Resume'
             geometry={nodes.Resume.geometry}
@@ -237,6 +249,7 @@ export function Portfolio(props) {
             position={[0.04, 0.53, -0.09]}
             rotation={[-1.24, -1.28, -1.23]}
             scale={0.19}
+            onClick={() => animateTo('Resume')}
           />
           <mesh
             name='Projects'
@@ -245,6 +258,7 @@ export function Portfolio(props) {
             position={[-0.12, 0.53, -0.05]}
             rotation={[1.02, -1.34, 1.01]}
             scale={0.19}
+            onClick={() => animateTo('Projects')}
           />
           <group name='Plane' position={[0, 0.47, 0]}>
             <mesh
@@ -263,98 +277,20 @@ export function Portfolio(props) {
               material={materials.glass}
             />
           </group>
-          <group
-            name='Laptop'
-            position={[0.48, 0.6, -0.13]}
-            rotation={[1.32, -0.07, 0.26]}
-            scale={[0.19, 0.1, 0.13]}>
-            <mesh
-              name='Plane001'
-              geometry={nodes.Plane001.geometry}
-              material={materials.BLACK}
-            />
-            <mesh
-              name='Plane001_1'
-              geometry={nodes.Plane001_1.geometry}
-              material={materials['Material.002']}
-            />
-            <mesh
-              name='Plane001_2'
-              geometry={nodes.Plane001_2.geometry}
-              material={materials['Material.003']}
-            />
-          </group>
-          <mesh
-            name='bookcase'
-            geometry={nodes.bookcase.geometry}
-            material={materials['Material #50']}
-            position={[-1.73, 1.4, 0.36]}
-            rotation={[Math.PI, 0, Math.PI]}
-            scale={0.03}
-          />
-          <group
-            name='Cube001'
-            position={[-1.63, 0.48, 0.21]}
-            rotation={[0, 0.03, 0.33]}
-            scale={[0.01, 0.12, 0.09]}>
-            <mesh
-              name='Cube001_1'
-              geometry={nodes.Cube001_1.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              name='Cube001_2'
-              geometry={nodes.Cube001_2.geometry}
-              material={materials['Material.006']}
-            />
-            <mesh
-              name='Cube001_3'
-              geometry={nodes.Cube001_3.geometry}
-              material={materials['Material.007']}
-            />
-          </group>
-          <group
-            name='Cube003'
-            position={[-1.65, 0.83, -0.16]}
-            rotation={[0, -0.06, 0.33]}
-            scale={[0.01, 0.12, 0.09]}>
-            <mesh
-              name='Cube002'
-              geometry={nodes.Cube002.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              name='Cube002_1'
-              geometry={nodes.Cube002_1.geometry}
-              material={materials['Material.006']}
-            />
-            <mesh
-              name='Cube002_2'
-              geometry={nodes.Cube002_2.geometry}
-              material={materials['Material.007']}
-            />
-          </group>
-          <group
-            name='Cube004'
-            position={[-1.62, 1.16, 0.2]}
-            rotation={[0, 0.02, 0.33]}
-            scale={[0.01, 0.1, 0.07]}>
-            <mesh
-              name='Cube003_1'
-              geometry={nodes.Cube003_1.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              name='Cube003_2'
-              geometry={nodes.Cube003_2.geometry}
-              material={materials['Material.006']}
-            />
-            <mesh
-              name='Cube003_3'
-              geometry={nodes.Cube003_3.geometry}
-              material={materials['Material.007']}
-            />
-          </group>
+          <primitive
+            object={laptop.scene}
+            position={[0.5, 0.4, 0]}
+            rotation-y={-0.2}
+            scale={[0.15, 0.15, 0.15]}>
+            <Html
+              transform
+              wrapperClass='screenContent'
+              distanceFactor={1.02}
+              position={[0, 1.56, -1.4]}
+              rotation-x={-0.256}>
+              <iframe src='https://imaginative-squirrel-f87fc2.netlify.app/' />
+            </Html>
+          </primitive>
           <mesh
             name='Cube005'
             geometry={nodes.Cube005.geometry}
@@ -370,27 +306,6 @@ export function Portfolio(props) {
             rotation={[-Math.PI, Math.PI / 2, 0]}
             scale={0.01}
           />
-          <group
-            name='Cube'
-            position={[-1.69, 0.81, 0.54]}
-            rotation={[0, 0.19, 0.33]}
-            scale={[0.01, 0.12, 0.09]}>
-            <mesh
-              name='Cube_1'
-              geometry={nodes.Cube_1.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              name='Cube_2'
-              geometry={nodes.Cube_2.geometry}
-              material={materials['Material.006']}
-            />
-            <mesh
-              name='Cube_3'
-              geometry={nodes.Cube_3.geometry}
-              material={materials['Material.007']}
-            />
-          </group>
           <mesh
             name='Text_0_001'
             geometry={nodes.Text_0_001.geometry}
@@ -613,4 +528,5 @@ export function Portfolio(props) {
   );
 }
 
-useGLTF.preload('/Portfolio2_.glb');
+useGLTF.preload('/Portfolio2.glb');
+useGLTF.preload('/laptop.gltf');
