@@ -18,3 +18,82 @@ canvas {
   border-radius: 20px;
   background-color: #000;
 }
+.back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  width: 20rem;
+  font-size: 2rem;
+  font-family: system-ui;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-image: linear-gradient(to right, #0091ad, #6efafb);
+  color: #000;
+  border: 0;
+  font-weight: 600;
+  transform: translateX(calc(-100% - 1rem));
+  transition: 650ms ease transform;
+  cursor: pointer;
+}
+.button-in {
+  transform: translateX(0px);
+}
+.back:hover {
+  transform: translateX(-8px);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #111;
+  clip-path: circle(100% at 50% 50%);
+  animation: overlayToCenter 1000ms ease forwards 1000ms,
+    fadeUp 1000ms ease-in forwards 3500ms;
+}
+.overlay::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15rem;
+  aspect-ratio: 1;
+  background-image: url('../public/logo.svg');
+  background-size: cover;
+}
+@keyframes fadeUp {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-75vh);
+  }
+}
+@keyframes overlayToCenter {
+  to {
+    clip-path: circle(10% at 50% 50%);
+  }
+}
+.overlay2 {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  backdrop-filter: blur(8px) saturate(0%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  transform: translateY(0px);
+  animation: saturateIn 1000ms ease forwards 3500ms,
+    fadeDown 1000ms ease forwards 4000ms;
+}
+@keyframes fadeDown {
+  to {
+    transform: translateY(100vh);
+  }
+}
+@keyframes saturateIn {
+  to {
+    backdrop-filter: blur(0px) saturate(100%);
+  }
+}

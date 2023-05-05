@@ -5,6 +5,7 @@ import Experience from './Experience.js';
 import { Camera } from './Camera';
 import { Suspense } from 'react';
 import { Portfolio } from './Portfolio';
+import { Sparkles, Stars } from '@react-three/drei';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -23,6 +24,18 @@ root.render(
       <Camera />
     </Suspense>
     <Experience /> */}
-    <Portfolio />
+    <Suspense fallback={null}>
+      <Stars
+        radius={100}
+        depth={50}
+        count={5000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
+      />
+      <Portfolio />
+      <Sparkles speed={0.5} scale={[8, 5, 8]} count={600} />
+    </Suspense>
   </Canvas>
 );
