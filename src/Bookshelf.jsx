@@ -13,103 +13,56 @@ export function Bookshelf(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name='Scene'>
+        <group name='Plant_7_pot' position={[-1.64, 1.06, 0.55]}>
+          <mesh
+            name='Pot_7_Mesh'
+            geometry={nodes.Pot_7_Mesh.geometry}
+            material={materials.Pot_Black_M}
+          />
+          <mesh
+            name='Pot_7_Mesh_1'
+            geometry={nodes.Pot_7_Mesh_1.geometry}
+            material={materials.Pot_soil_M}
+          />
+        </group>
+        <mesh
+          name='Plant_7'
+          geometry={nodes.Plant_7.geometry}
+          material={materials.Plant_7_M}
+          position={[-1.64, 1.06, 0.55]}
+        />
+        <group name='Plant_10_pot' position={[-1.5, 0.71, -0.22]} scale={0.39}>
+          <mesh
+            name='Pot_10_Mesh'
+            geometry={nodes.Pot_10_Mesh.geometry}
+            material={materials.Pot_Blue_glossy_M}
+          />
+          <mesh
+            name='Pot_10_Mesh_1'
+            geometry={nodes.Pot_10_Mesh_1.geometry}
+            material={materials['Pot_soil_M.001']}
+          />
+        </group>
+        <mesh
+          name='Plant_10'
+          geometry={nodes.Plant_10.geometry}
+          material={materials.Plant_10_M}
+          position={[-1.5, 0.71, -0.22]}
+          scale={0.39}
+        />
         <mesh
           name='bookcase'
           geometry={nodes.bookcase.geometry}
-          material={materials['Material #50']}
-          position={[-1.83, 1.4, 0.38]}
+          material={materials.Plant_10_M}
+          position={[-1.72, 1.45, 0.36]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={0.03}
         />
         <group
-          name='Cube001'
-          position={[-1.63, 0.83, 0.21]}
-          rotation={[0, 0.03, 0.33]}
-          scale={[0.01, 0.12, 0.09]}>
-          <mesh
-            name='Cube001_1'
-            geometry={nodes.Cube001_1.geometry}
-            material={materials.Material}
-          />
-          <mesh
-            name='Cube001_2'
-            geometry={nodes.Cube001_2.geometry}
-            material={materials['Material.006']}
-          />
-          <mesh
-            name='Cube001_3'
-            geometry={nodes.Cube001_3.geometry}
-            material={materials['Material.007']}
-          />
-        </group>
-        <group
-          name='Cube003'
-          position={[-1.65, 0.83, -0.16]}
-          rotation={[0, -0.35, 0.33]}
-          scale={[0.01, 0.12, 0.09]}>
-          <mesh
-            name='Cube002_1'
-            geometry={nodes.Cube002_1.geometry}
-            material={materials.Material}
-          />
-          <mesh
-            name='Cube002_2'
-            geometry={nodes.Cube002_2.geometry}
-            material={materials['Material.006']}
-          />
-          <mesh
-            name='Cube002_3'
-            geometry={nodes.Cube002_3.geometry}
-            material={materials['Material.007']}
-          />
-        </group>
-        <group
-          name='Cube004'
-          position={[-1.62, 1.16, 0.2]}
-          rotation={[0, 0.02, 0.33]}
-          scale={[0.01, 0.1, 0.07]}>
-          <mesh
-            name='Cube003_1'
-            geometry={nodes.Cube003_1.geometry}
-            material={materials.Material}
-          />
-          <mesh
-            name='Cube003_2'
-            geometry={nodes.Cube003_2.geometry}
-            material={materials['Material.006']}
-          />
-          <mesh
-            name='Cube003_3'
-            geometry={nodes.Cube003_3.geometry}
-            material={materials['Material.007']}
-          />
-        </group>
-        <group
-          name='Cube'
-          position={[-1.62, 0.81, 0.54]}
-          rotation={[0, 0.19, 0.33]}
-          scale={[0.01, 0.12, 0.09]}>
-          <mesh
-            name='Cube_1'
-            geometry={nodes.Cube_1.geometry}
-            material={materials.Material}
-          />
-          <mesh
-            name='Cube_2'
-            geometry={nodes.Cube_2.geometry}
-            material={materials['Material.006']}
-          />
-          <mesh
-            name='Cube_3'
-            geometry={nodes.Cube_3.geometry}
-            material={materials['Material.007']}
-          />
-        </group>
-        <group
           name='Cube002'
-          position={[-1.63, 1.17, -0.16]}
-          rotation={[0, -0.26, 0.33]}
-          scale={[0.01, 0.12, 0.09]}>
+          position={[-1.64, 1.21, 0.95]}
+          rotation={[-1.53, -0.27, 0.12]}
+          scale={[0.01, 0.12, 0.16]}>
           <mesh
             name='Cube004_1'
             geometry={nodes.Cube004_1.geometry}
@@ -128,23 +81,65 @@ export function Bookshelf(props) {
         </group>
         <group
           name='Cube006'
-          position={[-1.63, 1.17, 0.52]}
-          rotation={[0, 0.25, 0.33]}
-          scale={[0.01, 0.12, 0.09]}>
+          position={[-1.66, 0.79, 0.19]}
+          rotation={[-1.61, -0.27, -0.18]}
+          scale={[0.01, 0.12, 0.16]}>
           <mesh
-            name='Cube008'
-            geometry={nodes.Cube008.geometry}
+            name='Cube009'
+            geometry={nodes.Cube009.geometry}
             material={materials.Material}
           />
           <mesh
-            name='Cube008_1'
-            geometry={nodes.Cube008_1.geometry}
+            name='Cube009_1'
+            geometry={nodes.Cube009_1.geometry}
             material={materials['Material.006']}
           />
           <mesh
-            name='Cube008_2'
-            geometry={nodes.Cube008_2.geometry}
-            material={materials['Material.007']}
+            name='Cube009_2'
+            geometry={nodes.Cube009_2.geometry}
+            material={materials['Material.008']}
+          />
+        </group>
+        <group
+          name='Cube004'
+          position={[-1.7, 1.21, 0.03]}
+          rotation={[-1.64, -0.26, -0.29]}
+          scale={[0.01, 0.27, 0.16]}>
+          <mesh
+            name='Cube010'
+            geometry={nodes.Cube010.geometry}
+            material={materials.Material}
+          />
+          <mesh
+            name='Cube010_1'
+            geometry={nodes.Cube010_1.geometry}
+            material={materials['Material.006']}
+          />
+          <mesh
+            name='Cube010_2'
+            geometry={nodes.Cube010_2.geometry}
+            material={materials['Material.009']}
+          />
+        </group>
+        <group
+          name='Cube003'
+          position={[-1.67, 0.79, 0.72]}
+          rotation={[-1.52, -0.27, 0.17]}
+          scale={[0.01, 0.27, 0.16]}>
+          <mesh
+            name='Cube011'
+            geometry={nodes.Cube011.geometry}
+            material={materials.Material}
+          />
+          <mesh
+            name='Cube011_1'
+            geometry={nodes.Cube011_1.geometry}
+            material={materials['Material.006']}
+          />
+          <mesh
+            name='Cube011_2'
+            geometry={nodes.Cube011_2.geometry}
+            material={materials['Material.010']}
           />
         </group>
       </group>

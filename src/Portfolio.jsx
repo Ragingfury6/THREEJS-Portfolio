@@ -177,7 +177,7 @@ export function Portfolio(props) {
           azimuth={[-0.2, 0.2]}
           config={{ mass: 2, tension: 400 }}
           snap={{ mass: 4, tension: 400 }}>
-          <Environment preset='park' />
+          <Environment preset='night' />
 
           <rectAreaLight
             width={5}
@@ -205,6 +205,36 @@ export function Portfolio(props) {
             position={[-6.15, 4.37, 1.32]}
             rotation={[-Math.PI / 2, 0, 0]}
             // position={[x, y, z]}
+          />
+          <pointLight
+            position={[-0.1, 0.3, 0.9]}
+            color='#45494a'
+            intensity={5}
+            distance={2}
+          />
+          <pointLight
+            position={[-1.71, 1.45, 0.36]}
+            color='#b0d3f5'
+            intensity={2}
+            distance={5}
+          />
+          <pointLight
+            position={[-1.71, 1.45, 0.55]}
+            color='#b0d3f5'
+            intensity={2}
+            distance={5}
+          />
+          <pointLight
+            position={[-1.69, 0.9, 0.36]}
+            color='#b0d3f5'
+            intensity={2}
+            distance={5}
+          />
+          <pointLight
+            position={[-1.71, 0.9, -0.3]}
+            color='#b0d3f5'
+            intensity={2}
+            distance={5}
           />
 
           <group
