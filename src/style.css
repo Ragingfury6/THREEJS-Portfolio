@@ -97,3 +97,36 @@ canvas {
     backdrop-filter: blur(0px) saturate(100%);
   }
 }
+
+.info-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.25rem solid #111;
+  border-radius: 50%;
+  outline: 5px solid #2dbfe3;
+  outline-offset: 2px;
+  animation: pulse 3s ease-in-out infinite;
+  display: block;
+  cursor: pointer;
+}
+.info-circle:nth-of-type(1) {
+  animation-delay: calc(250ms);
+}
+.info-circle:nth-of-type(2) {
+  animation-delay: calc(500ms);
+}
+.info-circle:nth-of-type(3) {
+  animation-delay: calc(750ms);
+}
+.info-circle:nth-of-type(4) {
+  animation-delay: calc(1000ms);
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
