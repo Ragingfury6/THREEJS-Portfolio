@@ -10,7 +10,7 @@ import {
   Clone,
 } from '@react-three/drei';
 import { useThree, useLoader } from '@react-three/fiber';
-import { Vector3 } from 'three';
+import { Color } from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { TextureLoader } from 'three';
 import { useMemo } from 'react';
@@ -48,7 +48,7 @@ export default function Experience() {
 
   return (
     <>
-      <Environment preset='city' />
+      <pointLight position={[0,2,0.5]} color={new Color("#FCF9D9")}/>
 
       <Sparkles speed={0.5} scale={[8, 5, 8]} count={200} />
 
