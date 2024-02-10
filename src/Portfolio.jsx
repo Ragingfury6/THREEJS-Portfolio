@@ -151,7 +151,7 @@ export function Portfolio(props) {
           azimuth={[-0.2, 0.2]}
           config={{ mass: 2, tension: 400 }}
           snap={{ mass: 4, tension: 400 }}>
-          <Environment preset='night' />
+          {/* <Environment preset='night' /> */}
 
           <Html
             position={[-2.85, 1.06, 0.1]}
@@ -170,7 +170,7 @@ export function Portfolio(props) {
             transform>
             <a
               className='info-circle'
-              href='https://ubarterfront.onrender.com/'
+              href='https://github.com/RogerRandomDev/reactfinal'
               target='_blank'></a>
           </Html>
           <Html
@@ -190,7 +190,7 @@ export function Portfolio(props) {
             transform>
             <a
               className='info-circle'
-              href='https://westmec-ne-map.onrender.com/'
+              href='https://westmecmap.netlify.app/'
               target='_blank'></a>
           </Html>
 
