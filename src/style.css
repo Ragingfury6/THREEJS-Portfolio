@@ -1,21 +1,132 @@
 html,
 body,
-#root
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: ivory;
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: ivory;
 }
-canvas{
-    touch-action: none;
+canvas {
+  touch-action: none;
 }
-.screenContent iframe{
-    width: 1024px;
-    height: 670px;
-    border: 0;
-    border-radius: 20px;
-    background-color: #000;
+.screenContent iframe {
+  width: 1205px;
+  height: 798px;
+  border: 0;
+  border-radius: 20px;
+  background-color: #000;
+}
+.back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  width: 20rem;
+  font-size: 2rem;
+  font-family: system-ui;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-image: linear-gradient(to right, #0091ad, #6efafb);
+  color: #000;
+  border: 0;
+  font-weight: 600;
+  transform: translateX(calc(-100% - 1rem));
+  transition: 650ms ease transform;
+  cursor: pointer;
+}
+.button-in {
+  transform: translateX(0px);
+}
+.back:hover {
+  transform: translateX(-8px);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #111;
+  clip-path: circle(100% at 50% 50%);
+  animation: overlayToCenter 1000ms ease forwards 1000ms,
+    fadeUp 1000ms ease-in forwards 3500ms;
+}
+.overlay::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15rem;
+  aspect-ratio: 1;
+  background-image: url('../public/logo.svg');
+  background-size: cover;
+}
+@keyframes fadeUp {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-75vh);
+  }
+}
+@keyframes overlayToCenter {
+  to {
+    clip-path: circle(10% at 50% 50%);
+  }
+}
+.overlay2 {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  backdrop-filter: blur(8px) saturate(0%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  transform: translateY(0px);
+  animation: saturateIn 1000ms ease forwards 3500ms,
+    fadeDown 1000ms ease forwards 4000ms;
+}
+@keyframes fadeDown {
+  to {
+    transform: translateY(100vh);
+  }
+}
+@keyframes saturateIn {
+  to {
+    backdrop-filter: blur(0px) saturate(100%);
+  }
+}
+
+.info-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.25rem solid #111;
+  border-radius: 50%;
+  outline: 5px solid #2dbfe3;
+  outline-offset: 2px;
+  animation: pulse 3s ease-in-out infinite;
+  display: block;
+  cursor: pointer;
+}
+.info-circle:nth-of-type(1) {
+  animation-delay: calc(250ms);
+}
+.info-circle:nth-of-type(2) {
+  animation-delay: calc(500ms);
+}
+.info-circle:nth-of-type(3) {
+  animation-delay: calc(750ms);
+}
+.info-circle:nth-of-type(4) {
+  animation-delay: calc(1000ms);
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
 }
